@@ -11,6 +11,12 @@ class FakeUsersRepository implements IUsersRepository {
     return this.users;
   }
 
+  public async findById(id: string): Promise<User | undefined> {
+    const userFound = this.users.find(user => user.id === id);
+
+    return userFound;
+  }
+
   public async findByEmail(email: string): Promise<User | undefined> {
     const userFound = this.users.find(user => user.email === email);
 
@@ -25,6 +31,20 @@ class FakeUsersRepository implements IUsersRepository {
     this.users.push(user);
 
     return user;
+  }
+
+  public async save(user: User): Promise<User> {
+    const findIndex = this.users.findIndex(findUser => findUser.id === user.id);
+
+    this.users[findIndex] = user;
+
+    return user;
+  }
+
+  public async delete(id: string): Promise<void> {
+    const findIndex = this.users.findIndex(findUser => findUser.id === id);
+
+    this.users.splice(findIndex);
   }
 }
 

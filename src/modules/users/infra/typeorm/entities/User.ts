@@ -35,6 +35,9 @@ class User {
   @Column({ nullable: true })
   avatar: string;
 
+  @Column({ nullable: true })
+  address: string;
+
   @CreateDateColumn()
   created_at: Date;
 

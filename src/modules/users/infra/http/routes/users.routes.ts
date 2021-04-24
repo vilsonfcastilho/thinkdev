@@ -1,16 +1,19 @@
 import { Router } from 'express';
 import { celebrate, Segments, Joi } from 'celebrate';
 
-import UsersController from '@modules/users/infra/http/controllers/UsersController';
 import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensureAuthenticated';
+import UsersController from '@modules/users/infra/http/controllers/UsersController';
+import GetUserController from '@modules/users/infra/http/controllers/GetUserController';
 
 const usersRouter = Router();
 const usersController = new UsersController();
+const getUserController = new GetUserController();
 
 usersRouter.post(
   '/',
   celebrate({
     [Segments.BODY]: {
+      name: Joi.string().required(),
       email: Joi.string().email().required(),
       password: Joi.string().required(),
     },
@@ -36,5 +39,7 @@ usersRouter.put(
 );
 
 usersRouter.delete('/', ensureAuthenticated, usersController.delete);
+
+usersRouter.get('/:id', getUserController.index);
 
 export default usersRouter;

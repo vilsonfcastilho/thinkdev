@@ -1,6 +1,6 @@
 # thinkdev
 
-A platform designed to create contents and help the community. 🔥
+A platform designed to create contents and help the community 🚀
 
 ---
 

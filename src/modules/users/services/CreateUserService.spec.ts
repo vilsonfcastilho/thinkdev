@@ -17,6 +17,7 @@ describe('CreateUser', () => {
 
   it('should be able to create a new user', async () => {
     const user = await createUser.execute({
+      name: 'John Doe',
       email: 'johndoe@email.com',
       password: '123456',
     });
@@ -26,12 +27,14 @@ describe('CreateUser', () => {
 
   it('should not be able to create two users with same e-mail', async () => {
     await createUser.execute({
+      name: 'John Doe',
       email: 'johndoe@email.com',
       password: '123456',
     });
 
     await expect(
       createUser.execute({
+        name: 'John Doe',
         email: 'johndoe@email.com',
         password: '123456',
       }),
