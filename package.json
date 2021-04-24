@@ -1,9 +1,9 @@
 {
-  "name": "tsexpress",
-  "description": "A TypeScript starter for Express that includes all you need to build amazing projects",
+  "name": "thinkdev",
+  "description": "A platform designed to create contents and help the community",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/vilsonfcastilho/tsexpress.git",
+  "repository": "https://github.com/vilsonfcastilho/thinkdev.git",
   "author": "Vilson Castilho <vilsonfcastilho@gmail.com>",
   "license": "MIT",
   "scripts": {
@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "celebrate": "^14.0.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
     "jsonwebtoken": "^8.5.1",

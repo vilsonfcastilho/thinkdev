@@ -17,6 +17,24 @@ class User {
   @Column()
   password: string;
 
+  @Column({ nullable: true })
+  name: string;
+
+  @Column({ nullable: true })
+  description: string;
+
+  @Column({ nullable: true })
+  profession: string;
+
+  @Column({ nullable: true })
+  company: string;
+
+  @Column({ nullable: true })
+  interests: string;
+
+  @Column({ nullable: true })
+  avatar: string;
+
   @CreateDateColumn()
   created_at: Date;
 

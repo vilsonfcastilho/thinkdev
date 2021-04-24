@@ -1,6 +1,7 @@
 import 'reflect-metadata';
 import express from 'express';
 import 'express-async-errors';
+import { errors } from 'celebrate';
 
 import '@shared/infra/typeorm';
 import '@shared/container';
@@ -12,6 +13,8 @@ const app = express();
 
 app.use(express.json());
 app.use(router);
+app.use(errors());
+
 app.use(globalExceptionHandler);
 
 app.listen(3333, () => {
